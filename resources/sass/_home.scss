@@ -1,0 +1,11 @@
+.border-row {
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding: 10px 0 10px 0;
+
+    .title-post {
+        color: red;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}

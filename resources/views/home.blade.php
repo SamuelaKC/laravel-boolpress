@@ -21,10 +21,11 @@
 
 @foreach ($allPosts as $post )
 <div class="container">
-    <div class="row">
-        <div class="col-4"><img src="{{$post->avatarUsers}}" /></div>
-        <div class="col-4">{{$post->titlePost}}</div>
-        <div class="col-4">{{$post->textPost}}</div>
+    <div class="row border-row">
+        <div class="col-2"><img src="{{$post->avatarUsers}}" /></div>
+        <div class="col-4 title-post">{{$post->titlePost}}</div>
+        <div class="col-6">{{$post->textPost}}</div>
+        <hr />
     </div>
 </div>
 
