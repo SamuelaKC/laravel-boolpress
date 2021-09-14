@@ -8,6 +8,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Post</th>
                 <th scope="col">Image</th>
+                <th scope="col">Price</th>
                 <th scope="col">Read</th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                         src="{{$post->image}}"
                         alt="Image of {{$post->idUsers}}"
                 /></td>
+                <td>€ {{$post->price}}</td>
                 <td>{{$post->read}}</td>
 
             </tr>
