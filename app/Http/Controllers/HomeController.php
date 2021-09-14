@@ -39,4 +39,26 @@ class HomeController extends Controller
         }
 
     }
+
+        //     public function private() 
+    // { 
+    //     /*
+    //     if(!Auth::check()){
+    //         return redirect()->route('login'); 
+    //     }
+    //     */
+    // //     $user = Auth::user(); 
+    // //     if(empty($user)) {
+            
+    // //         return 'Devi fare il login'; 
+
+    // //     } else {
+
+    // //     $allPosts = Post::all(); 
+
+    // //     return view('home', compact('allPosts')); 
+    // //     }
+
+    // }
+
 }
