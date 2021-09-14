@@ -22,6 +22,8 @@
                 </td>
                 <td class="title-post">{{$post->titlePost}}</td>
                 <td>{{$post->textPost}}</td>
+                {{-- <td><a href="/posts/{{$post->id}}"><i class="bi bi-zoom-in"></i></a></td> VARIANTE 1 --}}
+                {{-- <td><a href="{{route('posts.show', $post)}}"><i class="bi bi-zoom-in"></i></a></td> VARIANTE 2 --}}
                 <td><a href="{{route('posts.show', ['post' => $post->id])}}"><i class="bi bi-zoom-in"></i></a></td>
             </tr>
             @endforeach
