@@ -18,7 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-     <!-- Ciao ragazzi, creiamo con Laravel la nostra alternativa al più famoso CMS del modo: WordPress.
+     <!-- 
+     
+13/09/2021     
+Ciao ragazzi, creiamo con Laravel la nostra alternativa al più famoso CMS del modo: WordPress.
 Oggi iniziamo un nuovo progetto che si arricchirà nel corso delle prossime lezioni: man mano aggiungeremo funzionalità e vedremo la nostra applicazione crescere ed evolvere.
 Nel pomeriggio, rifate ciò che abbiamo visto insieme stamattina.
 In particolare:
@@ -28,7 +31,20 @@ creare modello Post
 creare un seeders per 50 posts
 attivare l’autenticazione secondo i comandi qui sopra.
 Bonus.
-Iniziate nella home page a “stilare” il vostro template con la lista dei post, lavorate con scss. ( Post::all() ) -->
+Iniziate nella home page a “stilare” il vostro template con la lista dei post, lavorate con scss. ( Post::all() )
+
+14/09/2021
+L’esercizio di oggi: Laravel Boolpress
+La repo è la stessa di ieri.
+Cosa dovete fare:
+Recuperate la repo di ieri
+Inserite un Controller di tipo Resource
+Sviluppare Index e Show
+Una volta finito, spingete su scss :occhiolino:
+Consiglio:
+Create una forma tabellare, come visto in classe per la vostra index, dove nell’ultima colonna inserire le azioni possibili (in questo caso, per oggi, solo il link che vi riporta alla show)
+
+ -->
 </head>
 <body>
     <div id="app">

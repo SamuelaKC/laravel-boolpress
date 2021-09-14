@@ -7,11 +7,11 @@
                 <th scope="col">Avatar</th>
                 <th scope="col">Title</th>
                 <th scope="col">Post</th>
-                <th scope="col">Details</th>
+                <th scope="col">Image</th>
+                <th scope="col">Read</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($allPosts as $post )
             <tr>
                 <th scope="row">{{$post->idUsers}}</th>
                 <td>
@@ -22,9 +22,13 @@
                 </td>
                 <td class="title-post">{{$post->titlePost}}</td>
                 <td>{{$post->textPost}}</td>
-                <td><a href="{{route('posts.show', ['post' => $post->id])}}"><i class="bi bi-zoom-in"></i></a></td>
+                <td> <img
+                        src="{{$post->image}}"
+                        alt="Image of {{$post->idUsers}}"
+                /></td>
+                <td>{{$post->read}}</td>
+
             </tr>
-            @endforeach
         </tbody>
     </table>
 </div>
