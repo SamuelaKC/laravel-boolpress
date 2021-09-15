@@ -22,7 +22,8 @@
 @foreach ($allPosts as $post )
 <div class="container">
     <div class="row border-row">
-        <div class="col-2"><img src="{{$post->avatarUsers}}" /></div>
+        <div class="col-2"><img src="{{$post->avatarUsers}}" /> 
+        <br> <a href ="{{route('posts.index')}}">Clicca qui</a></div>
         <div class="col-4 title-post">{{$post->titlePost}}</div>
         <div class="col-6">{{$post->textPost}}</div>
         <hr />
