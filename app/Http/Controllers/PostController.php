@@ -42,7 +42,7 @@ class PostController extends Controller
     {
         //
 
-        //dd($request); // dd= dump and die
+        // dd($request); // dd= dump and die
 
         $request->validate([
             'titlePost' => 'required|unique:posts|max:500',
@@ -62,14 +62,16 @@ class PostController extends Controller
     $post = new Post(); 
     $post->titlePost = $data['titlePost']; 
     $post->textPost = $data['textPost']; 
-    $post->textPost = $data['etiquette']; 
-    $post->textPost = $data['comment']; 
+    $post->etiquette = $data['etiquette']; 
+    $post->comment = $data['comment']; 
     $post->image = $data['image']; 
     $post->read = key_exists('read', $data) ? true:false; 
     $post->save(); 
     // dd('ho fatto'); 
 
-    // return redirect()->route('posts.show', $post->id); 
+
+
+    return redirect()->route('posts.show', $post->id); 
         
 
     }
