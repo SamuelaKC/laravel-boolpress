@@ -44,6 +44,17 @@ Una volta finito, spingete su scss :occhiolino:
 Consiglio:
 Create una forma tabellare, come visto in classe per la vostra index, dove nell’ultima colonna inserire le azioni possibili (in questo caso, per oggi, solo il link che vi riporta alla show)
 
+
+16/09/2021
+Esercitiamoci un po’ insieme, ripassiamo questi passaggi nel progetto boolpress
+“agganciamo” un nuovo template per la form alla rotta create -> return view…
+creiamo il form come visto a lezione (ricordiamoci di @csrf, action e method)
+inseriamo il button submit
+inseriamo un dd($request) all’interno del metodo store del nostro controller per debuggare la nostra request e vedere quali sono i dati ricevuti (dopo elimineremo questo dump e svilupperemo il salvataggio vero e proprio)
+
+Aggiungiamo create e store, come visto in classe.
+Validiamo i dati con le validazioni di laravel e mostriamo gli errori.
+
  -->
 </head>
 <body>

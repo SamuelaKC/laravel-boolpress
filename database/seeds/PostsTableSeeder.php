@@ -4,8 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Post; 
 use Faker\Generator as FakerPost; 
 
-class PostTableSeeders extends Seeder
-{
+class PostsTableSeeder extends Seeder
 
 // protected function getRedirectImage($url)
 // {
@@ -22,37 +21,38 @@ class PostTableSeeders extends Seeder
 
 //         return false;
 // }
+{
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run(FakerPost $fakerPost)
+ public function run(FakerPost $fakerPost)
     {
         //
 
-            // $table->string('idUsers', 255); 
-            // $table->text('avatarUsers'); 
             // $table->text('titlePost', 500); 
-            // $table->text('textPost'); 
-            // $table->text('image')->after('textPost'); 
+//             $table->longText('textPost'); 
+            // $table->text('etiquette', 255)->after('textPost'); 
+            // $table->text('comment')->after('etiquette'); 
+            // $table->text('image')->after('comment'); 
             // $table->boolean('read')->after('image'); 
-        
+            
+
+
         for ($i=0;  $i< 50; $i++ ) {
 
                 $postObject = new Post(); 
-                $postObject->idUsers = $fakerPost->numberBetween(1, 100);
-                $postObject->avatarUsers = $fakerPost->imageUrl(100, 100, 'avatar', true);
                 $postObject->titlePost = $fakerPost->sentence(5); 
                 $postObject->textPost = $fakerPost->paragraph(5); 
+                $postObject->etiquette = $fakerPost->words(1); 
+                $postObject->comment = $fakerPost->sentence(3); 
+                $postObject->image = $fakerPost->imageUrl(300, 200, 'posts', true);
+                $postObject->read = $fakerPost->boolean();
                 // $finalImageUrl = $this->getRedirectImage ('https://randomwordgenerator.com/img/picture-generator'); 
                 // echo $finalImageUrl . "\n";
                 // $postObject->image = $finalImageUrl; 
-                $postObject->image = $fakerPost->imageUrl(250, 250, 'imageObject', true); 
-                $postObject->price = $fakerPost->randomFloat(2, 10, 10000);
-                $postObject->read = $fakerPost->boolean();
                 $postObject->save(); 
         }    
-
     }
 }

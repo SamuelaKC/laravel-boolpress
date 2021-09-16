@@ -15,9 +15,11 @@ class UpdatePostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
-            $table->text('image')->after('textPost'); 
-            $table->double('price', 8, 2)->after('image'); 
-            $table->boolean('read')->after('price'); 
+            $table->text('etiquette', 255)->after('textPost'); 
+            $table->text('comment')->after('etiquette'); 
+            $table->text('image')->after('comment'); 
+            $table->boolean('read')->after('image'); 
+
         });
     }
 
