@@ -45,19 +45,13 @@ class PostController extends Controller
         //dd($request); // dd= dump and die
 
         $request->validate([
-'image' => 'url'
-
-
-
+            'titlePost' => 'required|unique:posts|max:500',
+            'textPost' => 'required|unique:posts|min:50',
+            'image' => 'url',
         ]);
     $data = $request->all(); 
-
-
-
 /*
-
-
-        if(key_exists('read', $data)) {
+    if(key_exists('read', $data)) {
             $read = true; 
         } else {
             $read = false; 
@@ -66,17 +60,16 @@ class PostController extends Controller
         */
 
     $post = new Post(); 
-    $post->idUsers = $data['idUsers']; 
-    $post->avatarUsers = $data['avatarUsers']; 
     $post->titlePost = $data['titlePost']; 
     $post->textPost = $data['textPost']; 
+    $post->textPost = $data['etiquette']; 
+    $post->textPost = $data['comment']; 
     $post->image = $data['image']; 
-    $post->price = $data['price']; 
     $post->read = key_exists('read', $data) ? true:false; 
     $post->save(); 
     // dd('ho fatto'); 
 
-    return redirect()->route('posts.show', $post->id); 
+    // return redirect()->route('posts.show', $post->id); 
         
 
     }

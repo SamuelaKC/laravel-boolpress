@@ -1,47 +1,91 @@
 @extends('layouts.app') @section('content')
 <div class="container posts-cont">
-    @if //codice da copiare per l'errore @endif
+
+            <!-- -- $postObject->titlePost = $fakerPost->sentence(5); 
+                $postObject->textPost = $fakerPost->paragraph(5); 
+                $postObject->etiquette = $fakerPost->words(1, true); 
+                $postObject->comment = $fakerPost->sentence(3); 
+                $postObject->image = $fakerPost->imageUrl(300, 200, 'posts', true);
+                $postObject->read = $fakerPost->boolean(); -- -->
+
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+                </ul>
+                </div>
+                @endif
+
     <form action="{{ Route('posts.store') }}" method="POST">
         @csrf
-
-        <!-- $table->id();
-            $table->text('avatarUsers'); 
-            $table->text('titlePost', 500); 
-            $table->text('textPost'); 
-            $table->text('image')->after('textPost'); 
-            $table->double('price', 8, 2)->after('image'); 
-            $table->boolean('read')->after('price');  -->
-
-        <label for="idUsers">Id User</label>
-        <input type="number" min="1" max="100" name="idUsers" id="idUsers" />
-        <br />
-
-        <label for="avatarUsers">Indirizzo dell'Avatar</label>
-        <input type="text" name="avatarUsers" id="avatarUsers" /> <br />
-
-        <label for="titlePost">Titolo del Post</label>
-        <input type="text" name="titlePost" id="titlePosts" /> <br />
-
-        <label for="textPost">Testo del Post</label>
-        <input type="text" name="textPost" id="textPost" /> <br />
-
-        <label for="image">Inserisci un immagine</label>
-        <input type="text" name="image" id="image" /> <br />
-
-        <label for="price">Prezzo</label>
-        <input type="number" name="price" id="price" step="0.01" /><br />
-
-        <div class="form-check form-check-inline">
+        <div class="form-group">
+            <label for="titlePost">Titolo del Post</label>
+            <input
+                type="text"
+                name="titlePost"
+                id="titlePost"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder="Titolo Post"
+            />
+        </div>
+        <div class="form-group">
+            <label for="textPost">Testo del Post</label>
+            <textarea
+                class="form-control"
+                name="textPost"
+                id="textPost"
+                rows="3"
+                placeholder="Testo del Post"
+            ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="etiquette">Etichetta</label>
+            <select class="form-control" name="etiquette" id="etiquette">
+                <option>Fantasy</option>
+                <option>Fantascienza</option>
+                <option>Horror</option>
+                <option>Romance</option>
+                <option>Storico</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="comment">Commento</label>
+            <textarea
+                class="form-control"
+                name="comment"
+                id="comment"
+                rows="3"
+                placeholder="Commento"
+            ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Immagine</label>
+            <input
+                type="text"
+                name="image"
+                id="image"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder="Url Immagine"
+            />
+        </div>
+        <div class="form-check">
             <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 name="read"
                 id="read"
             />
-            <label class="form-check-label" for="read">Letto</label>
+            <label class="form-check-label" for="read">
+                Letto
+            </label>
         </div>
 
-        <button type="submit" class="btn btn-primary">Salva</button>
+        <button type="submit" class="btn btn-primary">Salva Post</button>
     </form>
 </div>
 @endsection

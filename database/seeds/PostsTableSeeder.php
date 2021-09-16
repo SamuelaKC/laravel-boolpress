@@ -45,7 +45,7 @@ class PostsTableSeeder extends Seeder
                 $postObject = new Post(); 
                 $postObject->titlePost = $fakerPost->sentence(5); 
                 $postObject->textPost = $fakerPost->paragraph(5); 
-                $postObject->etiquette = $fakerPost->words(1); 
+                $postObject->etiquette = $fakerPost->words(1, true); 
                 $postObject->comment = $fakerPost->sentence(3); 
                 $postObject->image = $fakerPost->imageUrl(300, 200, 'posts', true);
                 $postObject->read = $fakerPost->boolean();
