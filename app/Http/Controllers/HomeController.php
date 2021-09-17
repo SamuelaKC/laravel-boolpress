@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth'); 
     }
 
     /**
@@ -28,12 +28,14 @@ class HomeController extends Controller
         
         $user = Auth::user(); 
         if(empty($user)) {
-            
-            return 'Devi fare il login'; 
 
+            // return 'Devi fare il login'; 
+        $allPosts = Post::orderBy('id', 'DESC')->get();
+        return view('home', compact('allPosts')); 
         } else {
 
-        $allPosts = Post::all(); 
+        //$allPosts = Post::all(); 
+        $allPosts = Post::orderBy('id', 'DESC')->get();
 
         return view('home', compact('allPosts')); 
         }
