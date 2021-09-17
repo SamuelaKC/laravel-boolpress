@@ -26,49 +26,81 @@
                     </a>
                 </td>
                 VARIANTE 2 --}} -->
-                @if(Auth::check())
                 <td>
-                    <a href="{{ route('posts.show', $post) }}"></a>
+                    <a href="{{ route('posts.show', $post) }}">
                         <i class="bi bi-zoom-in"></i>
                     </a>
+                    @if(Auth::check())
                     <a href="{{ route('posts.edit', $post) }}">
                         <i class="bi bi-pencil-square"></i>
                     </a>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm-{{$post->id}}"> 
-                                <i class="bi bi-x-square"></i> 
-                            </button>
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target=".bd-example-modal-sm-{{$post->id}}"
+                    >
+                        <i class="bi bi-x-square"></i>
+                    </button>
 
-                            <div class="modal fade bd-example-modal-sm-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-sm">
-                                    <div class="modal-content">
+                    <div
+                        class="modal fade bd-example-modal-sm-{{$post->id}}"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="mySmallModalLabel"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
                                 <div class="modal-header">
-                                        <h5 class="modal-title">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button
+                                        type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                    >
                                         <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Sei sicuro di voler cancellare il post?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form
+                                        action="{{
+                                            route('posts.destroy', $post)
+                                        }}"
+                                        method="POST"
+                                    >
+                                        @csrf @method('DELETE')
+                                        <button
+                                            type="submit"
+                                            class="btn btn-primary"
+                                        >
+                                            Cancella
                                         </button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <p>Sei sicuro di voler cancellare il post?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <form action="{{ route('posts.destroy', $post) }}"  method="POST" >
-                                        @csrf 
-                                        @method('DELETE') 
-                                            <button type="submit" class="btn btn-primary">Cancella</button>
-                                        </form>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                                    </div>
-                                        </div>
+                                    </form>
+                                    <button
+                                        type="button"
+                                        class="btn btn-secondary"
+                                        data-dismiss="modal"
+                                    >
+                                        Chiudi
+                                    </button>
                                 </div>
                             </div>
-                        <!-- <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                        </div>
+                    </div>
+                    <!-- <form action="{{ route('posts.destroy', $post) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                     </form> -->
 
-                        <!-- qui deve aprire una modals di bootstrap e poi mettere il pulsante che abbiamo messo nel cancella lo si mette nell'allert  che esce -->
+                    <!-- qui deve aprire una modals di bootstrap e poi mettere il pulsante che abbiamo messo nel cancella lo si mette nell'allert  che esce -->
                 </td>
                 @endif
             </tr>
