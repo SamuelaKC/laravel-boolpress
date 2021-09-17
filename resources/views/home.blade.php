@@ -1,11 +1,14 @@
 @extends('layouts.app') @section('content')
 <div class="container posts-cont">
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col" class="title-post">Title</th>
                 <th scope="col" class="title-post">Post</th>
                 <th scope="col" class="title-post">Details</th>
+                <th scope="col" class="title-post"></th>
+                <th scope="col" class="title-post"></th>
+                <th scope="col" class="title-post"></th>
             </tr>
         </thead>
         <tbody>
@@ -26,17 +29,31 @@
                     </a>
                 </td>
                 VARIANTE 2 --}} -->
-                <td>
+                <td colspan="4">
                     <a href="{{ route('posts.show', $post) }}">
-                        <i class="bi bi-zoom-in"></i>
+                        <button
+                            type="button"
+                            class="btn btn-outline-primary btn-sm"
+                            data-toggle="modal"
+                            data-target=".bd-example-modal-sm"
+                        >
+                            <i class="bi bi-zoom-in"></i>
+                        </button>
                     </a>
                     @if(Auth::check())
                     <a href="{{ route('posts.edit', $post) }}">
-                        <i class="bi bi-pencil-square"></i>
+                        <button
+                            type="button"
+                            class="btn btn-outline-primary btn-sm"
+                            data-toggle="modal"
+                            data-target=".bd-example-modal-sm"
+                        >
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
                     </a>
                     <button
                         type="button"
-                        class="btn btn-primary"
+                        class="btn btn-outline-primary btn-sm"
                         data-toggle="modal"
                         data-target=".bd-example-modal-sm-{{$post->id}}"
                     >
@@ -53,14 +70,14 @@
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
+                                    <h5 class="modal-title">Cancella</h5>
                                     <button
                                         type="button"
                                         class="close"
                                         data-dismiss="modal"
                                         aria-label="Close"
                                     >
-                                        <span aria-hidden="true">&times;</span>
+                                        <span aria-hidden="true"></span>
                                     </button>
                                 </div>
                                 <div class="modal-body">

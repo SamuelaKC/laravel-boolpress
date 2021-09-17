@@ -12333,17 +12333,17 @@ a.text-dark:focus {
 }
 
 .posts-cont {
-  background-color: black;
+  background-color: #ccffcc;
 }
 
 .posts-cont .title-post {
-  color: #ff0000;
+  color: #ff80cc;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .posts-cont .text-post {
-  color: white;
+  color: #000000;
 }
 
 .posts-cont img {
@@ -12351,7 +12351,7 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: black;
+  background-color: #bfffff;
   font-family: Calibri, "Trebuchet MS", sans-serif;
 }
 

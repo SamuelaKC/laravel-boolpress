@@ -24,7 +24,7 @@
         @csrf
         @method ('PUT')
         <div class="form-group">
-            <label for="titlePost">Titolo del Post</label>
+            <label for="titlePost"  class="title-post">Titolo del Post</label>
             <input
                 type="text"
                 name="titlePost"
@@ -36,17 +36,17 @@
             />
         </div>
         <div class="form-group">
-            <label for="textPost">Testo del Post</label>
+            <label for="textPost"  class="title-post">Testo del Post</label>
             <textarea
                 class="form-control"
                 name="textPost"
                 id="textPost"
                 rows="3"
                 placeholder="Testo del Post"
-            ></textarea>
+            >{{$post->textPost}}</textarea>
         </div>
         <div class="form-group">
-            <label for="etiquette">Etichetta</label>
+            <label for="etiquette"  class="title-post">Etichetta</label>
             <select class="form-control" name="etiquette" id="etiquette">
                 <option>Fantasy</option>
                 <option>Fantascienza</option>
@@ -56,17 +56,17 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="comment">Commento</label>
+            <label for="comment"  class="title-post">Commento</label>
             <textarea
                 class="form-control"
                 name="comment"
                 id="comment"
                 rows="3"
                 placeholder="Commento"
-            ></textarea>
+            >{{$post->comment}}</textarea>
         </div>
         <div class="form-group">
-            <label for="image">Immagine</label>
+            <label for="image"  class="title-post">Immagine</label>
             <input
                 type="text"
                 name="image"
@@ -74,23 +74,21 @@
                 class="form-control"
                 aria-describedby="emailHelp"
                 placeholder="Url Immagine"
+                value="{{$post->image}}"
             />
         </div>
-
-
         <div class="form-check">
             <input
                 class="form-check-input"
                 type="checkbox"
                 name="read"
                 id="read"
-             />
+            />
             <label class="form-check-label" for="read">
                 Letto
             </label>
         </div>
-
-        <button type="submit" class="btn btn-primary">Salva Post</button>
+        <button type="submit" class="btn btn-outline-primary btn-sm">Salva Post</button>
     </form>
 </div>
 @endsection

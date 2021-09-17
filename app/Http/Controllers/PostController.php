@@ -45,16 +45,14 @@ class PostController extends Controller
         // dd($request); // dd= dump and die
 
         $request->validate([
-            'titlePost' => 'required|unique:posts|max:500',
-            'textPost' => 'required|unique:posts|min:50',
             'image' => 'url',
         ]);
-    $data = $request->all(); 
+        $data = $request->all(); 
 
-    $post = new Post(); 
+        $post = new Post(); 
 
-    $this->fillAndSavePost($post, $data); 
-    return redirect()->route('posts.show', $post->id); 
+        $this->fillAndSavePost($post, $data); 
+        return redirect()->route('posts.show', $post->id); 
         
 
     }
@@ -127,12 +125,12 @@ return view('posts.edit', compact('post'));
     }
 
     private function fillAndSavePost (Post $post, $data) {
-    $post->titlePost = $data['titlePost']; 
-    $post->textPost = $data['textPost']; 
-    $post->etiquette = $data['etiquette']; 
-    $post->comment = $data['comment']; 
-    $post->image = $data['image']; 
-    $post->read = key_exists('read', $data) ? true:false; 
-    $post->save(); 
+        $post->titlePost = $data['titlePost']; 
+        $post->textPost = $data['textPost']; 
+        $post->etiquette = $data['etiquette']; 
+        $post->comment = $data['comment']; 
+        $post->image = $data['image']; 
+        $post->read = key_exists('read', $data) ? true:false; 
+        $post->save(); 
     }
 }
