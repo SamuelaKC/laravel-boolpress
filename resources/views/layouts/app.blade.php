@@ -55,11 +55,18 @@ inseriamo un dd($request) all’interno del metodo store del nostro controller p
 Aggiungiamo create e store, come visto in classe.
 Validiamo i dati con le validazioni di laravel e mostriamo gli errori.
 
+17/09/2021
+Prima di augurarvi buon lavoro e infine buon weekend, vi riepilogo cosa c’è da fare oggi :faccia_leggermente_sorridente:
+Seguendo ciò che abbiamo fatto in classe aggiungere edit/update e destroy.
+Ricordatevi dei fillable se utili al vostro scopo, oppure di centralizzare (come abbiamo fatto con il metodo fillAndSaveCar) il processo di salvataggio di un model e riutilizzarlo in update e store.
+Bonus:
+Per la cancellazione inserire una modale di conferma come ipotizzato in classe (usate bootstrap modal)
+
  -->
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}

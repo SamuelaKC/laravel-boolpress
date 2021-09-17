@@ -50,10 +50,30 @@ class PostController extends Controller
             'image' => 'url',
         ]);
     $data = $request->all(); 
+/*
+    if(key_exists('read', $data)) {
+            $read = true; 
+        } else {
+            $read = false; 
+        }
+
+        */
 
     $post = new Post(); 
 
     $this->fillAndSavePost($post, $data); 
+    /*
+    $post->titlePost = $data['titlePost']; 
+    $post->textPost = $data['textPost']; 
+    $post->etiquette = $data['etiquette']; 
+    $post->comment = $data['comment']; 
+    $post->image = $data['image']; 
+    $post->read = key_exists('read', $data) ? true:false; 
+    $post->save(); 
+    // dd('ho fatto'); 
+*/
+
+
     return redirect()->route('posts.show', $post->id); 
         
 
@@ -67,6 +87,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        //
         // dump($id); 
         $post = Post::find($id); 
         // dump($post); 
@@ -79,8 +100,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post) //prima c'era $id, riceve un id che cerca di trasformare in un oggetto e la trasformazione va a leggere direttamente dal db
     {
+        /*
+        creare la form
+        dal controller passare l'oggetto alla form
+        la forma mostra al posto dei vari value input il valore relativo all'oggetto
+        il pulsante submit porterà  al controllor update 
+        e l'update aggiorna l'oggetto e lo salva*/
 //dd($post); 
 
 
@@ -106,6 +133,28 @@ return view('posts.edit', compact('post'));
         $post->update($data); 
 */
     $this->fillAndSavePost($post, $data); 
+/*
+            $post->titlePost = $data['titlePost']; 
+    $post->textPost = $data['textPost']; 
+    $post->etiquette = $data['etiquette']; 
+    $post->comment = $data['comment']; 
+    $post->image = $data['image']; 
+    $post->read = key_exists('read', $data) ? true:false; 
+*/
+
+    /*
+
+        unset($data['_token']); 
+        unset($data['_method']);
+        dump($data); 
+
+        // $post->update($data);  questa è sbagliata va bene solo se dall'input partone i dargi giusti update  =fill + save
+
+        $post->fill($data); //formula corretta si usa il fill al posto dell'update fill fa solo fill, attenzione poi si deve modificare il dile in https ad esempio post da compilare con i campi che deve compilare
+
+        dump($post); 
+
+        */
 
         return redirect()->route('posts.show', $post); 
         
@@ -122,11 +171,11 @@ return view('posts.edit', compact('post'));
     {
         //
         $post->delete(); 
-        return redirect()->route('home'); 
+        return redirect()->route('posts.show'); 
 
     }
 
-    private function fillAndSavePost (Post $post, $data) {
+    private function fillAndSavePost ($post, $data) {
     $post->titlePost = $data['titlePost']; 
     $post->textPost = $data['textPost']; 
     $post->etiquette = $data['etiquette']; 

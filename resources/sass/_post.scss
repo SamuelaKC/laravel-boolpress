@@ -1,9 +1,17 @@
 .posts-cont {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
 
     .title-post {
-        color: red;
+        color: #ff0000;
         font-weight: 700;
         text-transform: uppercase;
+    }
+
+    .text-post {
+        color: white;
+    }
+
+    img {
+        width: 50%;
     }
 }

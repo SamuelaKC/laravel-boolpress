@@ -10,15 +10,15 @@
                 $postObject->read = $fakerPost->boolean(); -- -->
 
             <tr>
-                <th scope="col" colspan="3">Title</th>
-                <th scope="col">Post</th>
-                <th scope="col">Image</th>
+                <th scope="col" colspan="3" class="title-post">Title</th>
+                <th scope="col"class="title-post">Post</th>
+                <th scope="col"class="title-post">Image</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td colspan="3" class="title-post">{{$post->titlePost}}</td>
-                <td>{{$post->textPost}}</td>
+                <td class="text-post">{{$post->textPost}}</td>
                 <td>
                     <img
                         src="{{$post->image}}"
@@ -27,13 +27,13 @@
                 </td>
             </tr>
             <tr>
-                <th scope="row">Commento</th>
-                <td colspan="5">{{$post->comment}}</td>
+                <th scope="row" class="title-post">Commento</th>
+                <td colspan="5" class="text-post">{{$post->comment}}</td>
             </tr>
             <tr>
-                <th scope="row">Etichette</th>
-                <td colspan="3">{{$post->etiquette}}</td>
-                <td colspan="2">{{$post->read}}</td>
+                <th scope="row" class="title-post">Etichette</th>
+                <td colspan="3"class="text-post">{{$post->etiquette}}</td>
+                <td colspan="2"class="text-post">Letto? {{$post->read}}</td>
             </tr>
         </tbody>
     </table>
