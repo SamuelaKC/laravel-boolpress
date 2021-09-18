@@ -48,6 +48,7 @@
         <div class="form-group">
             <label for="etiquette"  class="title-post">Etichetta</label>
             <select class="form-control" name="etiquette" id="etiquette">
+                <option>Nessun Genere</option>
                 <option>Fantasy</option>
                 <option>Fantascienza</option>
                 <option>Horror</option>

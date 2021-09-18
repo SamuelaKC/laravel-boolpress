@@ -43,9 +43,13 @@ class PostController extends Controller
         //
 
         // dd($request); // dd= dump and die
+        // dd($data); // dd= dump and die
 
         $request->validate([
-            'image' => 'url',
+        // 'titlePost' => 'sometimes|required', 
+        // 'textPost' => 'sometimes|required', 
+        // 'comment' => 'sometimes|required', 
+        'image' => 'url',
         ]);
         $data = $request->all(); 
 

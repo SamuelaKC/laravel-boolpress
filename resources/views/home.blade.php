@@ -1,11 +1,29 @@
 @extends('layouts.app') @section('content')
 <div class="container posts-cont">
+    <div class="row">
+        <div class="col-12">
+            @if(Auth::check())
+            <a href="{{ route('posts.create') }}">
+                <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    data-toggle="modal"
+                    data-target=".bd-example-modal-sm"
+                >
+                    <i class="bi bi-plus-square"></i>
+                </button>
+                New Post
+            </a>
+            @endif
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col" class="title-post">Title</th>
                 <th scope="col" class="title-post">Post</th>
                 <th scope="col" class="title-post">Details</th>
+                <th scope="col" class="title-post"></th>
                 <th scope="col" class="title-post"></th>
                 <th scope="col" class="title-post"></th>
                 <th scope="col" class="title-post"></th>
@@ -29,18 +47,29 @@
                     </a>
                 </td>
                 VARIANTE 2 --}} -->
-                <td colspan="4">
-                    <a href="{{ route('posts.show', $post) }}">
+                <td colspan="5">
+                    @if(Auth::check()) {{--
+                    <a href="{{ route('posts.create') }}">
                         <button
                             type="button"
                             class="btn btn-outline-primary btn-sm"
                             data-toggle="modal"
                             data-target=".bd-example-modal-sm"
                         >
-                            <i class="bi bi-zoom-in"></i>
+                            <i class="bi bi-plus-square"></i>
                         </button>
                     </a>
-                    @if(Auth::check())
+                    --}}
+                    <a href="{{ route('posts.edit', $post) }}">
+                        <button
+                            type="button"
+                            class="btn btn-outline-primary btn-sm"
+                            data-toggle="modal"
+                            data-target=".bd-example-modal-sm"
+                        >
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                    </a>
                     <a href="{{ route('posts.edit', $post) }}">
                         <button
                             type="button"

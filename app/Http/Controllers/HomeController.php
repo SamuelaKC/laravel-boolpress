@@ -26,19 +26,22 @@ class HomeController extends Controller
     public function index() 
     { 
         
+        $allPosts = Post::orderBy('id', 'DESC')->get();
+        return view('home', compact('allPosts')); 
+        
+/*        
+        
         $user = Auth::user(); 
-        if(empty($user)) {
 
+        if(empty($user)) {
             // return 'Devi fare il login'; 
         $allPosts = Post::orderBy('id', 'DESC')->get();
         return view('home', compact('allPosts')); 
         } else {
-
         //$allPosts = Post::all(); 
         $allPosts = Post::orderBy('id', 'DESC')->get();
-
         return view('home', compact('allPosts')); 
-        }
+        } */
 
     }
 
