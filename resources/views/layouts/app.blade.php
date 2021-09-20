@@ -74,6 +74,19 @@ Per la cancellazione inserire una modale di conferma come ipotizzato in classe (
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            @if(Auth::check())
+            <a href="{{ route('posts.create') }}">
+                <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    data-toggle="modal"
+                    data-target=".bd-example-modal-sm"
+                >
+                    <i class="bi bi-plus-square"></i>
+                </button>
+                New Post
+            </a>
+            @endif
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->

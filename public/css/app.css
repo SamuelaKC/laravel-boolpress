@@ -12346,8 +12346,9 @@ a.text-dark:focus {
   color: #000000;
 }
 
-.posts-cont img {
-  width: 50%;
+.posts-cont .image-tab {
+  max-width: 200px;
+  width: 100%;
 }
 
 body {
