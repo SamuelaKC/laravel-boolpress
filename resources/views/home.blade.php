@@ -58,18 +58,7 @@
                             <i class="bi bi-zoom-in"></i>
                         </button>
                     </a>
-                    @if(Auth::check()) {{--
-                    <a href="{{ route('posts.create') }}">
-                        <button
-                            type="button"
-                            class="btn btn-outline-primary btn-sm"
-                            data-toggle="modal"
-                            data-target=".bd-example-modal-sm"
-                        >
-                            <i class="bi bi-plus-square"></i>
-                        </button>
-                    </a>
-                    --}}
+                    @if(Auth::check())
                     <a href="{{ route('posts.edit', $post) }}">
                         <button
                             type="button"
