@@ -12,7 +12,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="title-post">{{$post->created_at->format('d/m/Y')}}</td>
+                    <td class="title-post">{{$post->created_at->format('d M Y')}}</td>
                     <td class="title-post">{{$post->titlePost}}</td>
                     <td class="text-post">{{$post->textPost}}</td>
                     <td>
@@ -31,7 +31,11 @@
                 <tr>
                     <th scope="row" class="title-post">Etichette</th>
                     <td class="text-post">{{$post->etiquette}}</td>
-                    <td class="text-post">Post Modificato il: {{$post->updated_at->format('d/m/Y')}}</td>
+                    <td class="text-post">
+                    @if(Auth::check())
+                    Post Modificato il: {{$post->updated_at->format('d/m/Y')}}
+                    @endif
+                    </td>
 
                     <td class="text-post">
                         @if(Auth::check())
