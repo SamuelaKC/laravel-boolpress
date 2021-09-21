@@ -14,13 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index'); 
-
 Auth::routes();
+
+
+Route::get('/', 'HomeController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/index', 'HomeController@public')->name('index');
 // Route::get('/home', 'HomeController@private')->name('home')->middleware('auth');
 
-Route::resource('posts', 'PostController'); 
+// Route::resource('posts', 'PostController'); 
+Route::resource('posts', PostController::class);
+
+Route::get('/app', 'WebAppController@home'); 

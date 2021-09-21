@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
-use App\Post; 
+use App\Post;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,10 @@ class HomeController extends Controller
     { 
         
         $allPosts = Post::orderBy('id', 'DESC')->get();
-        return view('home', compact('allPosts')); 
+        // dump(Carbon::now()); 
+        $dateNow = Carbon::now();
+        $isWeekendProva = $dateNow->isWeekend(); //è o true o false
+        return view('home', compact('allPosts', 'dateNow', 'isWeekendProva')); 
         
 /*        
         

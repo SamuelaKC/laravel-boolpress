@@ -1,5 +1,11 @@
 @extends('layouts.app') @section('content')
 <div class="container posts-cont">
+<div class="title-post">{{$dateNow->format('F j, Y')}}</div>
+@if($isWeekendProva)
+<div class="title-post">it's weekend!!!</div>
+@else
+<div class="text-post">it's a work day... sorry!</div>
+@endif
     <table class="table table-striped">
         <thead>
             <tr>

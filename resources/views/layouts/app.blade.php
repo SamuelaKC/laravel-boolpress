@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-     <!-- 
+    <!-- 
      
 13/09/2021     
 Ciao ragazzi, creiamo con Laravel la nostra alternativa al più famoso CMS del modo: WordPress.

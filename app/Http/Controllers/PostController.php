@@ -17,8 +17,7 @@ class PostController extends Controller
     {
         $allPosts = Post::all(); 
         // dump($allPosts); 
-
-        return view('posts.index', compact('allPosts')); 
+        return view('posts.index', compact('allPosts'); 
     }
 
     /**
