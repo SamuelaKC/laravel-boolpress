@@ -127,20 +127,10 @@
             @endforeach
         </tbody>
     </table>
-    
+
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-
-            @foreach ( $allPosts as $page )
-            <li class="page-item"><a class="page-link" href="#">
-            {{$page->name}}</a></li>
-            @endforeach
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
+            {{$allPosts->links()}}
         </ul>
     </nav>
 </div>
