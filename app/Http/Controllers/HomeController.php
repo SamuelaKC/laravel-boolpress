@@ -31,6 +31,7 @@ class HomeController extends Controller
         // dump(Carbon::now()); 
         $dateNow = Carbon::now();
         $isWeekendProva = $dateNow->isWeekend(); //è o true o false
+
         return view('home', compact('allPosts', 'dateNow', 'isWeekendProva')); 
         
 /*        

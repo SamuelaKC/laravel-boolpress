@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <th scope="row" class="title-post">Etichette</th>
-                    <td class="text-post">{{$post->etiquette}}</td>
+                    <td class="text-post">{{$post->etiquette->name}}</td>
                     <td class="text-post">
                     @if(Auth::check())
                     Post Modificato il: {{$post->updated_at->format('d/m/Y')}}

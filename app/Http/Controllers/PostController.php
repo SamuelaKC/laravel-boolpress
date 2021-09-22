@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Etiquette;
 use Psy\Command\DumpCommand;
 
 class PostController extends Controller
@@ -28,7 +29,8 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('posts.create'); 
+        $etiquettes = Etiquette::all();
+        return view('posts.create', compact('etiquettes')); 
     }
 
     /**
@@ -45,10 +47,10 @@ class PostController extends Controller
         // dd($data); // dd= dump and die
 
         $request->validate([
-        // 'titlePost' => 'sometimes|required', 
-        // 'textPost' => 'sometimes|required', 
-        // 'comment' => 'sometimes|required', 
-        'image' => 'url',
+        'titlePost' => 'required', 
+        'textPost' => 'required', 
+        'comment' => 'nullable', 
+        'image' => 'required|url',
         ]);
         $data = $request->all(); 
 
@@ -84,8 +86,8 @@ class PostController extends Controller
     {
 //dd($post); 
 
-
-return view('posts.edit', compact('post'));
+        $etiquettes = Etiquette::all();
+return view('posts.edit', compact('post', 'etiquettes'));
 
 
     }
@@ -130,10 +132,10 @@ return view('posts.edit', compact('post'));
     private function fillAndSavePost (Post $post, $data) {
         $post->titlePost = $data['titlePost']; 
         $post->textPost = $data['textPost']; 
-        $post->etiquette = $data['etiquette']; 
         $post->comment = $data['comment']; 
         $post->image = $data['image']; 
         $post->read = key_exists('read', $data) ? true:false; 
+        $post->etiquette_id = $data['etiquette_id']; 
         $post->save(); 
     }
 }

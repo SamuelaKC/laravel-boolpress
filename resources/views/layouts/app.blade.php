@@ -62,6 +62,16 @@ Ricordatevi dei fillable se utili al vostro scopo, oppure di centralizzare (come
 Bonus:
 Per la cancellazione inserire una modale di conferma come ipotizzato in classe (usate bootstrap modal)
 
+
+22/09/21
+
+Riepilogando:
+Creazione della tabella categories (migrazione della stessa nuova tabella, aggiornamento di posts e poi modifica seeder in PostSeeder)
+Aggiornamento della create e store per la gestione (e salvataggio) del category_id
+Aggiornare la show mostrando la categoria del post (cronaca, sport, opinione, turismo, musica, cinema…)
+Come bonus provate a gestire anche l’edit e update :occhiolino:
+
+
  -->
 </head>
 <body>

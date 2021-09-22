@@ -47,13 +47,14 @@
         </div>
         <div class="form-group">
             <label for="etiquette"  class="title-post">Etichetta</label>
-            <select class="form-control" name="etiquette" id="etiquette">
-                <option>Nessun Genere</option>
-                <option>Fantasy</option>
-                <option>Fantascienza</option>
-                <option>Horror</option>
-                <option>Romance</option>
-                <option>Storico</option>
+            <select class="form-control" name="etiquette_id" id="etiquette_id">
+                @foreach ($etiquettes as $etiquette )
+                @if ($etiquette->id === $post->etiquette_id)
+                <option value="{{$etiquette->id}}" selected>{{$etiquette->name}}</option>
+                @else
+                <option value="{{$etiquette->id}}">{{$etiquette->name}}</option>
+                @endif
+                @endforeach
             </select>
         </div>
         <div class="form-group">

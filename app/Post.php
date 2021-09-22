@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
+public function etiquette() {
+        return $this->belongsTo(Etiquette::class);
+    }
+
+
+
     /*
 protected $fillable = [  // che possono essere riempiti a partire da un array associativo
         'titlePost',

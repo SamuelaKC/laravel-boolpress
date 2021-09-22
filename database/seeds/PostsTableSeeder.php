@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Post; 
+use App\Etiquette;
 use Faker\Generator as FakerPost; 
 
 class PostsTableSeeder extends Seeder
@@ -39,13 +40,42 @@ class PostsTableSeeder extends Seeder
             // $table->boolean('read')->after('image'); 
             
 
+        $etiquetteList = [
+            'Nessun Genere',
+            'Avventura',
+            'Biografia',
+            'Fantasy',
+            'Fantascienza',
+            'Giallo',
+            'Horror',
+            'Romance',
+            'Storico',
+            'Thriller',
+        ];
+
+        
+        $listOfEtiquetteID = [];  
+        foreach($etiquetteList as $etiquette) {
+            $etiquetteObject = new Etiquette();
+            $etiquetteObject->name = $etiquette;
+            $etiquetteObject->save();
+            $listOfEtiquetteID[] = $etiquetteObject->id;
+        }
+
+
 
         for ($i=0;  $i< 50; $i++ ) {
 
                 $postObject = new Post(); 
                 $postObject->titlePost = $fakerPost->sentence(5); 
                 $postObject->textPost = $fakerPost->paragraph(5); 
-                $postObject->etiquette = $fakerPost->words(1, true); 
+
+                $randEtiquetteKey = array_rand($listOfEtiquetteID, 1);
+                $etiquetteID = $listOfEtiquetteID[$randEtiquetteKey];
+                $postObject->etiquette_id = $etiquetteID;
+
+
+                // $postObject->etiquette = $fakerPost->words(1, true); 
                 $postObject->comment = $fakerPost->sentence(3); 
                 $postObject->image = $fakerPost->imageUrl(300, 200, 'posts', true);
                 $postObject->read = $fakerPost->boolean();
