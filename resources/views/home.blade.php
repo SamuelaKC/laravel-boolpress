@@ -1,11 +1,11 @@
 @extends('layouts.app') @section('content')
 <div class="container posts-cont">
-<div class="title-post">{{$dateNow->format('F j, Y')}}</div>
-@if($isWeekendProva)
-<div class="title-post">it's weekend!!!</div>
-@else
-<div class="text-post">it's a work day... sorry!</div>
-@endif
+    <div class="title-post">{{$dateNow->format('F j, Y')}}</div>
+    @if($isWeekendProva)
+    <div class="title-post">it's weekend!!!</div>
+    @else
+    <div class="text-post">it's a work day... sorry!</div>
+    @endif
     <table class="table table-striped">
         <thead>
             <tr>
@@ -127,5 +127,20 @@
             @endforeach
         </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+
+            @foreach ( $allPosts as $page )
+            <li class="page-item"><a class="page-link" href="#">
+            {{$page->name}}</a></li>
+            @endforeach
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 @endsection

@@ -27,11 +27,10 @@ class HomeController extends Controller
     public function index() 
     { 
         
-        $allPosts = Post::orderBy('id', 'DESC')->get();
+        $allPosts = Post::orderBy('id', 'DESC')->paginate(9);
         // dump(Carbon::now()); 
         $dateNow = Carbon::now();
         $isWeekendProva = $dateNow->isWeekend(); //è o true o false
-
         return view('home', compact('allPosts', 'dateNow', 'isWeekendProva')); 
         
 /*        
